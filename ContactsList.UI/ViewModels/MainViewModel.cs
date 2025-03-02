@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using ContactsList.Model;
 using ContactsList.UI.Data;
+using ContactsList.UI.ViewModels.Base;
 
-namespace ContactsList.UI;
+namespace ContactsList.UI.ViewModels;
 
-public class MainViewModel
+public class MainViewModel : BaseViewModel
 {
     private IPersonDataService _personDataService;
 
@@ -31,6 +32,10 @@ public class MainViewModel
     public Person SelectedPerson
     {
         get { return _selectedPerson;}
-        set { _selectedPerson = value; }
+        set
+        {
+            _selectedPerson = value;
+            OnPropertyChanged();
+        }
     }
 }
