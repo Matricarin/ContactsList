@@ -9,12 +9,12 @@ public class MainViewModel : BaseViewModel
 {
     private IPersonDataService _personDataService;
 
-    public ObservableCollection<Person> StoredPersonsList { get; }
+    public ObservableCollection<Person> StoredPersonsList { get; set; }
 
     public MainViewModel(IPersonDataService personDataService)
     {
-        StoredPersonsList = new ObservableCollection<Person>();
         _personDataService = personDataService;
+        StoredPersonsList = new ObservableCollection<Person>();
     }
 
     public void LoadPersons()
@@ -27,9 +27,9 @@ public class MainViewModel : BaseViewModel
         }
     }
 
-    private Person _selectedPerson;
+    private Person? _selectedPerson;
     
-    public Person SelectedPerson
+    public Person? SelectedPerson
     {
         get { return _selectedPerson;}
         set
