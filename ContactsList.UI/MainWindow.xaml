@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsList.UI"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="My Contacts" 
         Height="450" 
-        Width="800">
+        Width="800"
+        FontSize="16">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <ListView ItemsSource="{Binding StoredPersonsList}"
+        <ListView Grid.Column="0"
+                  ItemsSource="{Binding StoredPersonsList}"
                   SelectedItem="{Binding SelectedPerson}"
                   DisplayMemberPath="FirstName">
             <Grid>
@@ -27,9 +29,15 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Margin="10 10 10 0"
+                       Content="Firstname"/>
+                <TextBox Grid.Row="1"
+                         Margin="10 0 10 0"
+                         Text="{Binding SelectedPerson.FirstName,
+                         Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
-            
-            <Label/>
             
         </ListView>
     </Grid>
