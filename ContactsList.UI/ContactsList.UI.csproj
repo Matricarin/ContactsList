@@ -12,4 +12,8 @@
       <ProjectReference Include="..\ContactsList.Model\ContactsList.Model.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="8.2.0" />
+    </ItemGroup>
+
 </Project>
